@@ -16,7 +16,7 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('price_tpye');
+            $table->string('price_type');
             $table->float('price');
             $table->float('length')->nullable();
             $table->float('width')->nullable();
