@@ -16,7 +16,8 @@ class MaterialsController extends Controller
     {
         
         // dd(Material::find(1)->estimated_materials());
-        return view('pages.materials.index');
+        $data['materials'] = Material::all();
+        return view('pages.materials.index', $data);
     }
 
     /**
