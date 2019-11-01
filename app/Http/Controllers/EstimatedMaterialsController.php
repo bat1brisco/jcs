@@ -15,17 +15,17 @@ class EstimatedMaterialsController extends Controller
     {
         $int = 0;
         // $estimates = EstimatedMaterial::find(1);
-        $estimates = EstimatedMaterial::all();
-        foreach($estimates as $em){
-            foreach($em->materials as $mat){
-                echo $mat->name;
-            }            
-        }
+        $data['estimated_materials'] = EstimatedMaterial::all();
+        // foreach($estimates as $em){
+        //     foreach($em->materials as $mat){
+        //         echo $mat->name;
+        //     }            
+        // }
 
         // dd(EstimatedMaterial::all());
         // $materials = $estimates->materials->pluck("id");
 
-        
+        return view('pages.estimated_materials.index', $data);
     }
 
     /**
