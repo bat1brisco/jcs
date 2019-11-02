@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRequest;
 use App\Models\Material;
 use App\Models\EstimatedMaterial;
+use Illuminate\Validation\Rule;
+
 class MaterialsController extends Controller
 {
     /**
@@ -59,14 +62,26 @@ class MaterialsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        try{
-            Material::create(
+        // ['field' => ['required', Rule::in(Material::SIZE)]
+        // ]
+
+
+        // $data = $request->validate(
+        //     [
+        //         'size' => Rule::in(Material::SIZE),
+        //         'price' => 'required',
+        //         'price_type' => 'required|in_array:price_type',
+        //         'unit_type' => 'required|in_array:unit_type'
+        //     ]
+        // );
+        // try{
+            $techie = Material::create(
                 [
                     'name' => $request->input('name'), 
                     'price' => $request->input('price'), 
-                    'size' => ($request->input('size') != 0 ? $request->input('size'): null),
+                    'size' => ($request->input('size') != "Select Size" ? $request->input('size') : null),
                     'unit_type' => $request->input('unit_type'),
                     'price_type' => $request->input('price_type'),
                     'length' => $request->input('length'), 
@@ -75,9 +90,13 @@ class MaterialsController extends Controller
                     'weight' => $request->input('weight')
                 ]
             );
-        }catch(Exception $e){
-            return $e->getMessage();
-        }
+
+
+
+            // echo $techie;
+        // }catch(Exception $e){
+        //     return $e->getMessage();
+        // }
         return redirect()->route('materials.index');
         // $data['materials'] = Material::all();
         // dd($request->input('price'));
