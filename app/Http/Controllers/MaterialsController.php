@@ -121,7 +121,14 @@ class MaterialsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'size' => Material::SIZE,
+            'unit_type' => Material::UNIT_TYPE,
+            'price_type' => Material::PRICE_TYPE,
+            'material' => Material::find($id)
+        ];
+        
+        return view('pages.materials.edit', $data);
     }
 
     /**
