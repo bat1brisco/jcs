@@ -13,7 +13,6 @@ class EstimatedMaterialsController extends Controller
      */
     public function index()
     {
-        $int = 0;
         // $estimates = EstimatedMaterial::find(1);
         $data['estimated_materials'] = EstimatedMaterial::all();
         // foreach($estimates as $em){

@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.9.0/css/all.min.css" />
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
 </head>
 <body class="bg-light">
