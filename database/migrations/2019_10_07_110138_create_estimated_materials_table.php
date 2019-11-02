@@ -18,7 +18,7 @@ class CreateEstimatedMaterialsTable extends Migration
             $table->unsignedBigInteger('material_id');
             $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
             $table->unsignedBigInteger('estimation_id');
-            $table->foreign('estimation_id')->references('id')->on('estimations')-onDelete('cascade');
+            $table->foreign('estimation_id')->references('id')->on('estimations')->onDelete('cascade');
             $table->float('price_estimation', 8, 2);
             $table->integer('quantity');
             $table->timestamps();

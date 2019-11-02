@@ -16,7 +16,16 @@ class MaterialsController extends Controller
     {
         
         // dd(Material::find(1)->estimated_materials());
-        $data['materials'] = Material::all();
+        $data = [
+            'size' => Material::SIZE,
+            'unit_type' => Material::UNIT_TYPE,
+            'price_type' => Material::PRICE_TYPE,
+            'materials' => Material::all(), 
+        ];
+        // $data['size'] = Material::SIZE;
+        // $data['unit_type'] = Material::UNIT_TYPE;
+        // $data['price_type'] = Material::PRICE_TYPE;
+        // $data['materials'] = Material::all();
         return view('pages.materials.index', $data);
     }
 
@@ -27,13 +36,21 @@ class MaterialsController extends Controller
      */
     public function create()
     {
-        Material::create(
-            [
-                'name' => 'Testing', 
-                'price' => 45.30, 
-                'price_type' => 'Testing' 
-            ]
-        );
+        // Material::create(
+        //     [
+        //         'name' => 'Testing', 
+        //         'price' => 45.30, 
+        //         'price_type' => 'Testing' 
+        //     ]
+        // );
+        // $data['materials'] = Material::all();
+        $data = [
+            'size' => Material::SIZE,
+            'unit_type' => Material::UNIT_TYPE,
+            'price_type' => Material::PRICE_TYPE
+        ];
+
+        return view('pages.materials.create', $data);
     }
 
     /**
@@ -44,7 +61,26 @@ class MaterialsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            Material::create(
+                [
+                    'name' => $request->input('name'), 
+                    'price' => $request->input('price'), 
+                    'size' => ($request->input('size') != 0 ? $request->input('size'): null),
+                    'unit_type' => $request->input('unit_type'),
+                    'price_type' => $request->input('price_type'),
+                    'length' => $request->input('length'), 
+                    'width' => $request->input('width'), 
+                    'height' => $request->input('height'), 
+                    'weight' => $request->input('weight')
+                ]
+            );
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+        return redirect()->route('materials.index');
+        // $data['materials'] = Material::all();
+        // dd($request->input('price'));
     }
 
     /**

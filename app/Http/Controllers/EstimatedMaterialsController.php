@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EstimatedMaterial;
+use App\Models\Material;
+
 class EstimatedMaterialsController extends Controller
 {
     /**
@@ -34,14 +36,9 @@ class EstimatedMaterialsController extends Controller
      */
     public function create()
     {
-        EstimatedMaterial::create(
-            [
-                'material_id' => 2,
-                'estimation_id' => 2,
-                'price_estimation' => 500.00,
-                'quantity' => 4
-            ]
-        );
+        $data["materials"] = Material::all();
+        return view('pages.estimated_materials.create', $data);
+
     }
 
     /**
@@ -52,7 +49,14 @@ class EstimatedMaterialsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        EstimatedMaterial::create(
+            [
+                'material_id' => 2,
+                'estimation_id' => 2,
+                'price_estimation' => 500.00,
+                'quantity' => 4
+            ]
+        );
     }
 
     /**

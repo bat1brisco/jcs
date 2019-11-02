@@ -11,9 +11,9 @@
 @slot('btn_icon2') fas fa-search @endslot
 @endcomponent --}}
     <div class="card-body">
-        <form action="{{ route('estimated-materials.store') }}" method="POST">
+        <form action="{{ route('materials.store') }}" method="POST">
             @csrf
-            @include('pages.estimated_materials.forms')
+            @include('pages.materials.forms')
         </form>
         {{-- @if (isset($categories->media->first->filename['filename'] ))
             <img src="{{ $categories->media->first->filename['filename'] }}" style="width:100%; height:100%" alt="">

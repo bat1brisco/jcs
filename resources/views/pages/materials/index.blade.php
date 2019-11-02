@@ -5,9 +5,9 @@
     @component('components.add')
     @slot('title') Materials @endslot
     @slot('icon') shopping-basket @endslot
-    @slot('btn_title') Add Product @endslot
+    @slot('btn_title') Add Materials @endslot
     @slot('btn_icon') plus @endslot
-    @slot('btn_link') {{ "#" }} @endslot
+    @slot('btn_link') {{ route('materials.create') }} @endslot
     @slot('btn_icon2') fas fa-search @endslot
     @endcomponent
 
@@ -42,7 +42,9 @@
                             </th>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Size</th>
                             <th scope="col">Price Type</th>
+                            <th scope="col">Unit Type</th>
                             <th scope="col">Price</th>
                             <th scope="col">Length</th>
                             <th scope="col">Width</th>
@@ -62,8 +64,9 @@
                                 </td>
                                 <td scope="row">{{ $material->id}}</td>
                                 <td scope="row" class="slug-width">{{ $material->name }}</td>
-
-                                <td><span class="badge badge-pill badge-secondary">{{ $material->price_type}}</span></td>
+                                <td><span class="badge badge-pill badge-secondary">{{ strlen($material->size) > 0 ? $material->size : "None"}}</span></td>
+                                <td><span class="badge badge-pill badge-primary">{{ $material->price_type}}</span></td>
+                                <td><span class="badge badge-pill badge-danger">{{ $material->unit_type}}</span></td>
                                 <td>{{ $material->price }}</td>
                                 <td>{{ $material->length ? $material->length : "None" }}</td>
                                 <td>{{ $material->width ? $material->width : "None"  }}</td>

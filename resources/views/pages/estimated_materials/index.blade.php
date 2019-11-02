@@ -7,7 +7,7 @@
 @slot('icon') shopping-basket @endslot
 @slot('btn_title') Add Product @endslot
 @slot('btn_icon') plus @endslot
-@slot('btn_link') {{ "#" }} @endslot
+@slot('btn_link') {{ route("estimated-materials.create") }} @endslot
 @slot('btn_icon2') fas fa-search @endslot
 @endcomponent
 <div class="card shadow borderless">
