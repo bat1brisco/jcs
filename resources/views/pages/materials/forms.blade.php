@@ -36,7 +36,7 @@
                         @endforeach --}}
                         <option selected> Select Pricing Type  </option>
                         @foreach($price_type as $val)
-                        <option value="{{ $val }}">{{ $val }}</option>
+                        <option {{ old('size', optional( isset($material) ? $material : null )->price_type) === $val ? 'selected' : '' }} > {{ $val }}</option>
                         @endforeach
 
 
@@ -54,7 +54,7 @@
                     <select class="form-control" name="unit_type" required>
                         <option selected> Select Unit Type  </option>
                         @foreach($unit_type as $val)
-                            <option value="{{ $val }}">{{ $val }}</option>
+                            <option {{ old('size', optional( isset($material) ? $material : null )->unit_type) === $val ? 'selected' : '' }} >{{ $val }}</option>
                         @endforeach
                     </select>
                 </div>

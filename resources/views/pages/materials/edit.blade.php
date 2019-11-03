@@ -6,6 +6,7 @@
     <div class="card-body">
         <form action="{{ route('materials.update', $material->id) }}" method="POST">
             @csrf
+            @method("PATCH")
             @include('pages.materials.forms')
         </form>
         {{-- @if (isset($categories->media->first->filename['filename'] ))

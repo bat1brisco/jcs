@@ -140,7 +140,22 @@ class MaterialsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $material = Material::findOrFail($id);
+        $techie = [
+                'name' => $request->input('name'), 
+                'price' => $request->input('price'), 
+                'size' => ($request->input('size') != "Select Size" ? $request->input('size') : null),
+                'unit_type' => $request->input('unit_type'),
+                'price_type' => $request->input('price_type'),
+                'length' => $request->input('length'), 
+                'width' => $request->input('width'), 
+                'height' => $request->input('height'), 
+                'weight' => $request->input('weight')
+        ];
+        $material->update($techie);
+
+        return redirect()->route('materials.index');
+        
     }
 
     /**
@@ -151,6 +166,7 @@ class MaterialsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $material = Material::findOrFail($id)->delete();
+        return redirect()->route('materials.index');
     }
 }

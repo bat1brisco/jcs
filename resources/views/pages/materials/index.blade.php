@@ -50,6 +50,8 @@
                             <th scope="col">Width</th>
                             <th scope="col">Height</th>
                             <th scope="col">Weight</th>
+                            <th scope="col">Actions</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +74,7 @@
                                 <td>{{ $material->width ? $material->width : "None"  }}</td>
                                 <td>{{ $material->height ? $material->height : "None"  }}</td>
                                 <td>{{ $material->weight ? $material->weight : "None"  }}</td>
+                                <td>  @include('components.actn-btn', ['item' => $material, 'lnk' => 'materials'])</td>
                             </tr>
                         @endforeach         
 

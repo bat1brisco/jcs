@@ -38,7 +38,6 @@ class EstimatedMaterialsController extends Controller
     {
         $data["materials"] = Material::all();
         return view('pages.estimated_materials.create', $data);
-
     }
 
     /**
