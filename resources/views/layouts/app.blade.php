@@ -25,10 +25,10 @@
                           <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Projects</a>
+                        <a class="nav-link" href="estimated-materials">Projects</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Materials</a>
+                          <a class="nav-link" href="{{ config('APP_URL') . 'materials'}} ">Materials</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>

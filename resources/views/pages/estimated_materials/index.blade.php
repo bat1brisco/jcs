@@ -3,9 +3,9 @@
 
 @section('content')
 @component('components.add')
-@slot('title') Materials @endslot
+@slot('title') Estimated Materials @endslot
 @slot('icon') shopping-basket @endslot
-@slot('btn_title') Add Product @endslot
+@slot('btn_title') Create Estimation @endslot
 @slot('btn_icon') plus @endslot
 @slot('btn_link') {{ route("estimated-materials.create") }} @endslot
 @slot('btn_icon2') fas fa-search @endslot
