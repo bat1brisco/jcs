@@ -12,7 +12,7 @@
                 @foreach($materials as $val)
                 <option
                     {{ old('type', optional( isset($material) ? $material : null )->name) === $val ? 'selected' : '' }}>
-                    {{ $val }}</option>
+                    {{ $val->name }} - {{ strlen($val->size) ? $val->size : "None" }}</option>
                 @endforeach
             </select>
         </div>
